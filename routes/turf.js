@@ -3,6 +3,13 @@ var router = express.Router();
 
 var turf = require('@turf/turf');
 
+// 模拟option请求403
+router.options('/option403', function (req, res, next) {
+  return res.status(403).end();
+})
+router.get('/option403', function (req, res, next) {
+  return res.json();
+})
 // @link http://turfjs.org/docs/
 router.get('/shortestPath', function (req, res, next) {
   return res.json(turf.shortestPath([-5, -6], [9, -6], {

@@ -25,9 +25,9 @@ app.use(session({
 }))
 
 // Cors
-app.all('/**/**', function (req, res, next) {
+app.all('*', function (req, res, next) { // '/**/**'
   res.header("Access-Control-Allow-Origin", "http://localhost:4200");
-  res.header("Access-Control-Allow-Headers", "Content-Type,X-Requested-With");
+  res.header("Access-Control-Allow-Headers", "Content-Type,X-Requested-With"); // 添加所有请求带过来的头部信息，如果超出规定头部会报跨域
   res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
   res.header("Access-Control-Allow-Credentials", "true");
   res.header("Content-Type", "application/json;charset=utf-8");
